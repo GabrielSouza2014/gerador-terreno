@@ -14,6 +14,6 @@ typedef struct {
 	int b;
 }PIXEL;
 
-
+//criar enum
 
 #endif

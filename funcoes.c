@@ -1,3 +1,6 @@
+/* © copyright  2016 - Gabriel Araújo de Souza
+ - Todos os direitos reservados - <gabriel_feg@hotmail.com>*/
+
 //funções 
 #include "tipos.h"
 #include <string.h>
@@ -104,36 +107,5 @@ void preencheMatriz(int tam, PIXEL img[tam][tam], int v[tam], int v2[tam]){
 	}
 }
 
-void geraImg (int tam, PIXEL img[tam][tam], char *nomeArq){
 
-	int max = 255;
-	char *tipo = "P3"; 
-	//char *nomeArq = "img.ppm";
-
-	char *destino = "/home/ubuntu/Pictures/";//saída padrão das imagens geradas
-	char *enderImg = malloc(strlen(destino)+strlen(nomeArq)+1);//aloca o tamanho do destino
-
-	strcpy(enderImg, destino);
-	strcat(enderImg, nomeArq);
-
-	FILE *arq;
-	arq = fopen (enderImg, "w");
-
-	//strcpy -> copia
-	//strcat -> concatena
-	//strlen -> pega o tamanho
-	//printf("%s\n", enderImg);
-
-	int i, j;
-	fprintf(arq,"%s\n%i %i\n%i\n",tipo, tam, tam, max);
-	for(i=0;i<tam;i++){
-		for (j=0;j<tam;j++){
-			fprintf(arq,"%i %i %i\n", img[i][j].r,
-								 	  img[i][j].g,
-								 	  img[i][j].b);
-		}
-	}
-	free (enderImg);
-	fclose(arq);
-}
 

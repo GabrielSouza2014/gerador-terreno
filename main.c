@@ -1,5 +1,9 @@
+/* © copyright  2016 - Gabriel Araújo de Souza
+ - Todos os direitos reservados - <gabriel_feg@hotmail.com>*/
+ 
 #include "tipos.h"
 #include "funcoes.h"
+#include "gerar_Img.h"
 #include <string.h>
 
 int main (int arg, char *argc[]){
