@@ -33,53 +33,75 @@ void contorno(int *v, int ext_1, int ext_2, int limite, int tamanho){
 	}
 }
 
-void preencheMatriz(int tam, PIXEL img[tam][tam], int v[tam]){
+void preencheMatriz(int tam, PIXEL img[tam][tam], int v[tam], int v2[tam]){
 	int i, j;
-	int aux;
+	int aux = 0;
 
-	/*for (i=0; i<tam; i++){
-		aux = v[i];
-		for(j=0; j<10; j++){
-			//if contra segmentation fault
-			if (aux+j < tam-1 && i+j < tam-1 && aux+j>0 && i+j>0){ 
-				img[aux+j][i+j].r = 50;
-				img[aux+j][i+j].g = 205;
-				img[aux+j][i+j].b = 50;
-			}			
+	//pintar base
+	for(i=0;i<50;i++){
+		for(j=0;j<tam;j++){
+			img[i][j].r = 4;
+			img[i][j].g = 8;
+			img[i][j].b = 27;
 		}
-		
-	}*/
-	
+	}
 	//pintar céu 
-	for (j=0; j<tam; j++){
-		aux = v[j];
-		for (i=aux; i>0; i--){
-			img[i][j].r = 126;
-			img[i][j].g = 192;
-			img[i][j].b = 238;
-		}
-	}
-	//pintar montanha
-	for (j=0; j<tam; j++){
-		aux = v[j];
-		for (i=aux; i< tam; i++){
-			img[i][j].r = 139;
-			img[i][j].g = 115;
-			img[i][j].b = 85;
+	for (i=50;i<tam;i++){
+		//faz com que o auxiliar aumente a cada três linhas
+		if((i%8)==0 && i!=0)
+			aux++;
+		for (j=0;j<tam;j++){
+
+			img[i][j].r = 4+aux;
+			img[i][j].g = 8+aux;
+			img[i][j].b = 27+aux;
+
 		}
 	}
 
-	//corrigir falhas 
-	/*for (i=0; i<tam; i++){
-		for (j=0; j<tam; j++){
-			if (img[i][j].r == 0 && img[i][j].g == 0 && img[i][j].b == 0){
-				img[i][j].r = 50;
-				img[i][j].g = 205;
-				img[i][j].b = 50;
-			}
-		}
-	}*/
+	// pintar estrelas
+	int quant_star = 10+(rand()%35);
+	int l_star, c_star;
+	for (i=0;i<quant_star;i++){
+		l_star = 5+(rand()%v[rand()%tam]);
+		c_star = 5+(rand()%tam);
 
+		img[l_star][c_star].r = 255;
+		img[l_star][c_star].g = 255;
+		img[l_star][c_star].b = 255;
+
+	}	
+
+	//pintar 1º montanha
+	for (i=0; i<tam; i++){
+		aux = v[i];
+		for (j=aux; j< tam; j++){
+			
+			img[j][i].r = 40;
+			img[j][i].g = 20;
+			img[j][i].b = 13;
+			
+		}
+	}
+	//pintar 2º montanha
+	for (i=0; i<tam; i++){
+		aux = v2[i];
+		for (j=aux; j< tam; j++){
+			
+			img[j][i].r = 20;
+			img[j][i].g = 20;
+			img[j][i].b = 20;
+			/*if (aux < v[i]){
+				for(j=aux; j<10; j++){
+					img[j][i].r = 35;
+					img[j][i].g = 35;
+					img[j][i].b = 35;
+				}
+
+			}*/
+
+		}
+	}
 }
 
 void geraImg (int tam, PIXEL img[tam][tam], char *nomeArq){
