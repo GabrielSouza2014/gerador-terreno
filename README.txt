@@ -9,59 +9,53 @@
 
 ____________________________________________________________
 
-* criar um enum
-* separar melhor a função preencher imagem
-* criar um parametro para receber o repositório 
-____________________________________________________________
-
 1 - O QUE FOI FEITO
 
+	*Gerador de Contorno aleatório da montanha
+	*Recebimento de parâmetros pelo usuário (tamanho da imagem,
+	 fator deslocamento e nome do arquivo gerado), além da criação
+	 de um Default caso não seja digitado nada.
+	*Gerador de efeitos graficos 
+		-> Gerador de estrelas aleatório;
+		-> Aplicador de Gradiente;
+		-> Colorir Céu, e montanhas;
+		-> Gerador de Montanha Extra (para efeito de cadeias rochosas);
+	*Criação de um novo tipo de dado para a matriz imagem
+	*criação de um enum para os modulos do cenário
+	*Gerador de Imagem *.ppm utilizando arquivos
+	*Modularização do projeto
 
 
 2 - O QUE NÃO FOI FEITO
 
+	*Verificar se o tamanho que o usuário digitou é uma potência de 2 + 1
 
+3 - O QUE FARIA DIFERENTE
 
+	* A partir dos aprendizados obtidos o que se faria diferente seria 
+	uma melhor uso de cores para os elementos do cenário e a criação de 
+	um efito mais realístico para as montanhas (pedras, arvores, etc). 
+	A criação de um gerador de terrenos com altitudes se tornou mais claro
+	com este projeto,e portanto,tentaria fazer esse novo modelo. O uso do
+	Enum, a criação de novos tipos de dados e a manipulação de arquivos
+	ficaram amis claras, e portanto usaria de forma mais eficiente em 
+	novos projetos.
+	
 
-3 - BIBLIOTECAS USADAS
+4 - BIBLIOTECAS USADAS
 
 	* stdio.h
 	* string.h
 	* stdlib.h
 	* time.h
 
-4 - ARQUIVOS CRIADOS
-
-	4.1 - main.c
-
-		* Esse é o arquivo principal do projeto
-		* Responsável por receber os parâmetros digitados pelo usuário
-		* Declara o tamanho da imagem
-		* Chama as funções de criar, pintar e gerar a imagem
-
-	4.2 - funcoes.c
-		
-		* Possui a função de criar o contorno das montanhas
-		* Possui a função que aplica o gradiente, estrelas, e cores na imagem
-		
-	4.3 - funcoes.h
-		
-		* Arquivo ".h" de funcoes.c
-
-	4.4 - gerar_Img.c
-
-		* Contém a função que cria um arquivo ".ppm" e gera a imagem
-		* Utiliza a biblioteca string.h
-
-	4.5 - gerar_Img.h
-
-		* Arquivo ".h" de gerar_Img.c
-
-	4.6 - tipos.h
-
-		* Criado para definir novos tipos de variáveis
-
 5 - COMPILANDO O PROJETO
 
 	gcc main.c funcoes.c gerar_Img.c -o <nome_do_arquivo.exe>
 
+6 - EXECUTANDO O PROJETO
+
+	./<nome_do_arquivo>
+	-s -> tamanho da imagem quadrada
+	-d -> deslocamento inicial
+	-o -> nome do arquivo imagem que será gerado

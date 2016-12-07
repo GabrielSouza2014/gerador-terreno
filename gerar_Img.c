@@ -4,18 +4,26 @@
 #include "gerar_Img.h"
 #include <stdio.h>
 
+/**
+	* Aqui a função que cria e gera o arquivo imagem
+	* @param tam     Tamanho da matriz imagem
+	* @param img     Matriz com dados da imagem a ser gerada
+	* @param nomeArq Referência do nome da imagem
+*/
+
 void geraImg (int tam, PIXEL img[tam][tam], char *nomeArq){
 
-	//strcpy -> copia
-	//strcat -> concatena
-	//strlen -> pega o tamanho
+	//TODO strcpy -> copia
+	//TODO strcat -> concatena
+	//TODO strlen -> pega o tamanho
 	
+	//TODO Aqui variáveis do tipo Imagem
 	int max = 255;
 	char *tipo = "P3"; 
 	
-	// char *destino = "/home/gabriel_2016/Imagens/";//saída padrão das imagens geradas
+	//TODO Aqui aloca o tamanho do endereço em que a imagem será gerada
 	char *destino = "./";//saída padrão das imagens geradas
-	char *enderImg = malloc(strlen(destino)+strlen(nomeArq)+1);//aloca o tamanho do destino
+	char *enderImg = malloc(strlen(destino)+strlen(nomeArq)+1);
 
 	strcpy(enderImg, destino);
 	strcat(enderImg, nomeArq);
@@ -23,6 +31,7 @@ void geraImg (int tam, PIXEL img[tam][tam], char *nomeArq){
 	FILE *arq;
 	arq = fopen (enderImg, "w");
 
+	//TODO Aqui gera o arquivo da imagem 
 	int i, j;
 	fprintf(arq,"%s\n%i %i\n%i\n",tipo, tam, tam, max);
 	for(i=0;i<tam;i++){

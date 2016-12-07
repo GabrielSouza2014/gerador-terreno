@@ -8,12 +8,20 @@
 #include <time.h>
 #include <string.h>
 
+//Tipo da matriz
 typedef struct {
 	int r;
 	int g;
 	int b;
 }PIXEL;
 
-//criar enum
+//Elementos do cenário
+typedef enum {
+	CEU,
+	ESTRELA,
+	MONTANHA,
+	MONT_AUX,
+}CENARIO;
+
 
 #endif
