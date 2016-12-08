@@ -69,7 +69,7 @@ void preencheMatriz(int tam, PIXEL img[tam][tam], int v[tam], int v2[tam]){
 		{4,8,27}, //céu
 		{255,255,255}, //estrela
 		{40,20,13}, //montanha principal
-		{64,35,21}, //montanha secundária
+		{56,28,12}, //montanha secundária
 	};
 
 	// TODO Colore uma base para o céu (evita que o gradiente fique estranho)
